@@ -6,6 +6,7 @@
 package controllers;
 
 import entities.User;
+import interceptors.Log;
 import java.util.Optional;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -51,6 +52,7 @@ public class UploadController {
         this.file = file;
     }
     
+    @Log
     public void handleFileUpload(FileUploadEvent event) {
         
         String username = securityContext.getCallerPrincipal().getName();
