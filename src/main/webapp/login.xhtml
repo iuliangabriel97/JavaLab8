@@ -26,12 +26,13 @@
                                 <p:message for="password"/>
 
                                 <p:commandButton id="submit" update="@form" value="Login" action="#{loginController.execute}" ajax="false"/>
-                                
-                                <br/>
-                                <h:outputLabel for="registerButton" value="New User?"/> 
-                                <h:commandLink id="registerButton" value="Register Here" action="#{loginController.register}" />
+
+
                             </h:panelGrid>
                         </h:form>
+                        <br/>
+                        <h:outputLabel for="registerButton" value="New User?"/> 
+                        <h:commandLink id="registerButton" value="Register Here" action="#{loginController.register}" />
                     </div>   
                 </div>
             </p:outputPanel>

@@ -17,16 +17,16 @@ import javax.validation.constraints.NotEmpty;
 @RequestScoped
 @Named
 public class LoginController {
-    
+
     @NotEmpty
     private String username;
-    
+
     @NotEmpty
     private String password;
-    
+
     @Inject
     FacesContext facesContext;
-    
+
     @Inject
     SecurityContext securityContext;
 
@@ -45,9 +45,9 @@ public class LoginController {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public void execute() throws IOException{
-        switch(processAuthentication()){
+
+    public void execute() throws IOException {
+        switch (processAuthentication()) {
             case SEND_CONTINUE:
                 facesContext.responseComplete();
                 break;
@@ -59,19 +59,19 @@ public class LoginController {
                 break;
         }
     }
-    
-    private AuthenticationStatus processAuthentication(){
+
+    private AuthenticationStatus processAuthentication() {
         ExternalContext ec = getExternalContext();
-        return securityContext.authenticate((HttpServletRequest)ec.getRequest(), 
-                                            (HttpServletResponse)ec.getResponse(), 
-                                            AuthenticationParameters.withParams().credential(new UsernamePasswordCredential(username, password)));
+        return securityContext.authenticate((HttpServletRequest) ec.getRequest(),
+                (HttpServletResponse) ec.getResponse(),
+                AuthenticationParameters.withParams().credential(new UsernamePasswordCredential(username, password)));
     }
-    
-    private ExternalContext getExternalContext(){
+
+    private ExternalContext getExternalContext() {
         return facesContext.getExternalContext();
     }
-    
-    public String register(){
+
+    public String register() {
         return "register?faces-redirect=true";
     }
 }

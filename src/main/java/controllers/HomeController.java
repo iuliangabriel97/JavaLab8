@@ -64,7 +64,11 @@ public class HomeController {
     }
 
     public boolean isAllowedToSeeUsers() {
-        return securityContext.isCallerInRole("admin");
+//        System.out.println(securityContext.getCallerPrincipal().getName());
+//        System.out.println("??ADMIN?? " + securityContext.isCallerInRole("admin"));
+//        System.out.println("??ADMIN?? " + securityContext.isUserI("admin"))
+        return "admin".equals(securityContext.getCallerPrincipal().getName());
+//        return securityContext.isCallerInRole("admin");
     }
 
 }
