@@ -1,8 +1,12 @@
+package config;
+
 
 import java.util.Calendar;
 import java.util.Date;
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Model;
 import javax.faces.annotation.FacesConfig;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -44,6 +48,7 @@ public class ApplicationConfig {
     @PostConstruct
     public void initialize() {
         Calendar tmp = Calendar.getInstance();
+        tmp.clear();
         tmp.set(Calendar.HOUR_OF_DAY, 10);
         tmp.set(Calendar.MINUTE, 0);
         this.uploadIntervalStart = tmp.getTime();

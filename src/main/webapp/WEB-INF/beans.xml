@@ -8,4 +8,9 @@
             interceptors.LoggingInterceptor
         </class>
     </interceptors>
+    <config>
+        <class>
+            config.ApplicationConfig
+        </class>
+    </config>
 </beans>

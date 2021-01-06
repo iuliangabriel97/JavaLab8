@@ -27,12 +27,20 @@
 
                                 <p:commandButton id="submit" update="@form" value="Login" action="#{loginController.execute}" ajax="false"/>
 
-
                             </h:panelGrid>
                         </h:form>
-                        <br/>
-                        <h:outputLabel for="registerButton" value="New User?"/> 
-                        <h:commandLink id="registerButton" value="Register Here" action="#{loginController.register}" />
+                            <br/>
+                        <h:form>
+                            <h:outputLabel for="registerButton" value="New User?"/> 
+                            <h:commandLink id="registerButton" value="Register Here" action="#{loginController.register}" />
+                            
+                            <pre><b>Registration hours: <h:outputText value="#{applicationConfig.registerIntervalStart}" >
+                                    <f:convertDateTime pattern = "HH:mm" />
+                                </h:outputText> to <h:outputText value="#{applicationConfig.registerIntervalEnd}" >
+                                    <f:convertDateTime pattern = "HH:mm" />
+                                </h:outputText>
+                            </b></pre>
+                        </h:form>
                     </div>   
                 </div>
             </p:outputPanel>

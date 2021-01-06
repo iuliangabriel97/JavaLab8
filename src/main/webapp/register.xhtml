@@ -13,7 +13,13 @@
                 <div class="ui-g">
                     <div class="ui-g-4" />
                     <div class="ui-g-4">
-                        <h3 style="text-align: center;">Register</h3>
+                        <h1 style="text-align: center;"><pre>Register</pre></h1>
+                        <pre><b>Registration hours: <h:outputText value="#{applicationConfig.registerIntervalStart}" >
+                                <f:convertDateTime pattern = "HH:mm" />
+                            </h:outputText> to <h:outputText value="#{applicationConfig.registerIntervalEnd}" >
+                                <f:convertDateTime pattern = "HH:mm" />
+                            </h:outputText>
+                        </b></pre>
                         <h:form id="register">
                             <p:messages id="messages" globalOnly="true"/>
                             <h:panelGrid columns="3" cellpadding="3">

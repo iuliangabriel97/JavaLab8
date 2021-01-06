@@ -5,8 +5,10 @@
  */
 package controllers;
 
+import config.ApplicationConfig;
 import entities.User;
 import interceptors.Log;
+import java.util.Calendar;
 import java.util.Optional;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -36,6 +38,7 @@ public class UploadController {
     @Inject
     DataService dataService;
     
+    
     private Optional<User> currentUser;
     
     @PostConstruct
@@ -55,12 +58,14 @@ public class UploadController {
     @Log
     public void handleFileUpload(FileUploadEvent event) {
         
-        String username = securityContext.getCallerPrincipal().getName();
-        this.currentUser = dataService.getUser(username);
         
-        dataService.createFile(event.getFile().getFileName(), this.currentUser.get());
+            String username = securityContext.getCallerPrincipal().getName();
+            this.currentUser = dataService.getUser(username);
+
+            dataService.createFile(event.getFile().getFileName(), this.currentUser.get());
+
+            FacesMessage msg = new FacesMessage("Successful", event.getFile().getFileName() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
         
-        FacesMessage msg = new FacesMessage("Successful", event.getFile().getFileName() + " is uploaded.");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 }
