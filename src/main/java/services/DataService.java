@@ -48,6 +48,10 @@ public class DataService {
         return em.createNamedQuery("User.all", User.class).getResultList();
     }
     
+    public List<File> getAllFiles(){
+        return em.createNamedQuery("File.all", File.class).getResultList();
+    }
+    
     public Optional<User> getUser(String username){
         return em.createNamedQuery("User.byUsername", User.class).setParameter("username", username).getResultList().stream().findFirst();
     }

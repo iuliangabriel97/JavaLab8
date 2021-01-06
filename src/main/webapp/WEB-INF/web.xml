@@ -15,23 +15,13 @@
     </servlet-mapping>
     
     <security-constraint>
-        <display-name>Admin Role</display-name>
+        <display-name>User Role</display-name>
         <web-resource-collection>
-            <web-resource-name>All App Pages</web-resource-name>
-            <url-pattern>/app/*</url-pattern>
+            <web-resource-name>Profile Page</web-resource-name>
+            <url-pattern>/app/index.xhtml</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>admin</role-name>
-        </auth-constraint>
-    </security-constraint>
-    
-    <security-constraint>
-        <display-name>Admin Role</display-name>
-        <web-resource-collection>
-            <web-resource-name>All App Pages</web-resource-name>
-            <url-pattern>/app/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
+            <role-name>user</role-name>
             <role-name>admin</role-name>
         </auth-constraint>
     </security-constraint>
@@ -39,14 +29,26 @@
     <security-constraint>
         <display-name>User Role</display-name>
         <web-resource-collection>
-            <web-resource-name>Profile Page</web-resource-name>
-            <url-pattern>/app/index.xhtml</url-pattern>
+            <web-resource-name>Upload Page</web-resource-name>
+            <url-pattern>/app/upload.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <display-name>Admin Role</display-name>
+        <web-resource-collection>
+            <web-resource-name>All App Pages</web-resource-name>
+            <url-pattern>/app/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>admin</role-name>
-            <role-name>user</role-name>
         </auth-constraint>
     </security-constraint>
+    
     
     <session-config>
         <session-timeout>
