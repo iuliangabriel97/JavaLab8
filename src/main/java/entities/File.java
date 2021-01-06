@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -24,7 +25,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "files")
-@NamedQuery(name = "File.byUser", query = "select f from File f where f.user.id = :userId")
+@NamedQueries({
+    @NamedQuery(name = "File.all", query = "select f from File f order by f.id"),
+    @NamedQuery(name = "File.byUser", query = "select f from File f where f.user.id = :userId")
+})
 public class File implements Serializable {
 
     @Id

@@ -21,6 +21,7 @@
                 <f:facet name="footer">
                     <h:form>
                         <p:commandButton value="All Users" action="users?faces-redirect=true" rendered="#{homeController.allowedToSeeUsers}"/>
+                        <p:commandButton value="All Files" action="files?faces-redirect=true" rendered="#{homeController.allowedToSeeUsers}"/>
                         <p:commandButton value="Upload" action="upload?faces-redirect=true"/>
                         <p:commandButton value="Logout" action="#{homeController.logout}"/>
                     </h:form>

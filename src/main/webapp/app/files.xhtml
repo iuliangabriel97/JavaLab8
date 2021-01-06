@@ -6,24 +6,20 @@
       xmlns:p="http://primefaces.org/ui">
     <f:view>
         <h:head>
-            <title>User Information</title> 
+            <title>All files</title> 
         </h:head>
         <h:body>
-            <h3>All Users</h3>
-            <p:dataTable value="#{usersController.allUsers}" var="user">
+            <h3>All files</h3>
+            <p:dataTable value="#{filesController.allFiles}" var="file">
                 <p:column headerText="Id">
-                    <h:outputText value="#{user.id}"/>
+                    <h:outputText value="#{file.id}"/>
                 </p:column>
                 <p:column headerText="Name">
-                    <h:outputText value="#{user.name}"/>
+                    <h:outputText value="#{file.description}"/>
                 </p:column>
-                <p:column headerText="Username">
-                    <h:outputText value="#{user.username}"/>
+                <p:column headerText="Uploader">
+                    <h:outputText value="#{file.getUser().name}"/>
                 </p:column>
-                <p:column headerText="Group">
-                    <h:outputText value="#{user.group}"/>
-                </p:column>
-
             </p:dataTable>
             <hr/>
             <h:form>
