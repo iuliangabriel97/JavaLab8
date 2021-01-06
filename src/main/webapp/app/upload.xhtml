@@ -10,7 +10,7 @@
         </h:head>
         <h:body>
             <p:growl id="messages" showDetail="true" sticky="true"/>
-            <h2><pre><b>Upload a file</b></pre></h2>
+            <h1><pre><b>Upload a file</b></pre></h1>
             <h:form enctype="multipart/form-data">        
                 <p:fileUpload listener="#{uploadController.handleFileUpload}" mode="advanced" dragDropSupport="true" update="messages"/>
             </h:form>

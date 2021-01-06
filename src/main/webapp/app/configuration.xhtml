@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <h:head>
+            <title>Configuration</title> 
+        </h:head>
+        <h:body>
+            <p:growl id="messages" showDetail="true" sticky="true"/>
+            <h1><pre><b>Change settings</b></pre></h1>
+            
+            <h:form>
+                <h2><pre><b>File upload interval</b></pre></h2>
+                
+                <p:outputLabel for="uploadStart" value="Start:" />
+                <p:datePicker id="uploadStart" value="#{applicationConfig.uploadIntervalStart}" timeOnly="true" pattern="HH:mm"/>
+                &nbsp;
+                <p:outputLabel for="uploadEnd" value="End:" />
+                <p:datePicker id="uploadEnd" value="#{applicationConfig.uploadIntervalEnd}" timeOnly="true" pattern="HH:mm"/>
+                
+                <h2><pre><b>User register interval</b></pre></h2>
+                
+                <p:outputLabel for="registerStart" value="Start:" />
+                <p:datePicker id="registerStart" value="#{applicationConfig.registerIntervalStart}" timeOnly="true" pattern="HH:mm"/>
+                &nbsp;
+                <p:outputLabel for="registerEnd" value="End:" />
+                <p:datePicker id="registerEnd" value="#{applicationConfig.registerIntervalEnd}" timeOnly="true" pattern="HH:mm"/>
+                
+                <br/>
+                
+                <p:commandButton value="Apply" action="#{applicationConfig.updateTimes()}" update="messages"/>
+            </h:form>
+            
+            <hr/>
+            <h:form>
+                <p:commandButton value="Back" action="/app/index.xhtml"/>
+                <p:commandButton value="Logout" action="#{homeController.logout}"/>
+            </h:form>
+        </h:body>
+    </f:view>
+</html>
+

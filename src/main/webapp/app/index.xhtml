@@ -9,7 +9,7 @@
             <title>User Profile</title>
         </h:head>
         <h:body>
-            <pre>Logged in as #{homeController.currentUser.name} (#{homeController.currentUser.group})</pre>
+            <h2><pre>Logged in as #{homeController.currentUser.name} (#{homeController.currentUser.group})</pre></h2>
                         
             <p:panel>
                 <p:dataList value="#{homeController.currentFiles}" var="file" type="ordered">
@@ -22,6 +22,7 @@
                     <h:form>
                         <p:commandButton value="All Users" action="users?faces-redirect=true" rendered="#{homeController.allowedToSeeUsers}"/>
                         <p:commandButton value="All Files" action="files?faces-redirect=true" rendered="#{homeController.allowedToSeeUsers}"/>
+                        <p:commandButton value="Control Panel" action="configuration?faces-redirect=true" rendered="#{homeController.allowedToSeeUsers}"/>
                         <p:commandButton value="Upload" action="upload?faces-redirect=true"/>
                         <p:commandButton value="Logout" action="#{homeController.logout}"/>
                     </h:form>
