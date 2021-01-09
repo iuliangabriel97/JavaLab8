@@ -16,22 +16,22 @@
                 <h2><pre><b>File upload interval</b></pre></h2>
                 
                 <p:outputLabel for="uploadStart" value="Start:" />
-                <p:datePicker id="uploadStart" value="#{applicationConfig.uploadIntervalStart}" timeOnly="true" pattern="HH:mm"/>
+                <p:datePicker id="uploadStart" value="#{timeConfig.uploadIntervalStart}" timeOnly="true" pattern="HH:mm"/>
                 &nbsp;
                 <p:outputLabel for="uploadEnd" value="End:" />
-                <p:datePicker id="uploadEnd" value="#{applicationConfig.uploadIntervalEnd}" timeOnly="true" pattern="HH:mm"/>
+                <p:datePicker id="uploadEnd" value="#{timeConfig.uploadIntervalEnd}" timeOnly="true" pattern="HH:mm"/>
                 
                 <h2><pre><b>User register interval</b></pre></h2>
                 
                 <p:outputLabel for="registerStart" value="Start:" />
-                <p:datePicker id="registerStart" value="#{applicationConfig.registerIntervalStart}" timeOnly="true" pattern="HH:mm"/>
+                <p:datePicker id="registerStart" value="#{timeConfig.registerIntervalStart}" timeOnly="true" pattern="HH:mm"/>
                 &nbsp;
                 <p:outputLabel for="registerEnd" value="End:" />
-                <p:datePicker id="registerEnd" value="#{applicationConfig.registerIntervalEnd}" timeOnly="true" pattern="HH:mm"/>
+                <p:datePicker id="registerEnd" value="#{timeConfig.registerIntervalEnd}" timeOnly="true" pattern="HH:mm"/>
                 
                 <br/>
                 
-                <p:commandButton value="Apply" action="#{applicationConfig.updateTimes()}" update="messages"/>
+                <p:commandButton value="Apply" action="#{timeConfig.updateTimes()}" update="messages"/>
             </h:form>
             
             <hr/>

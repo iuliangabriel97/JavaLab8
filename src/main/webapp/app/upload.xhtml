@@ -11,9 +11,9 @@
         <h:body>
             <p:growl id="messages" showDetail="true" sticky="true"/>
             <h1><pre><b>Upload a file</b></pre></h1>
-            <pre><b>Upload hours: <h:outputText value="#{applicationConfig.uploadIntervalStart}" >
+            <pre><b>Upload hours: <h:outputText value="#{timeConfig.uploadIntervalStart}" >
                     <f:convertDateTime pattern = "HH:mm" />
-                </h:outputText> to <h:outputText value="#{applicationConfig.uploadIntervalEnd}" >
+                </h:outputText> to <h:outputText value="#{timeConfig.uploadIntervalEnd}" >
                     <f:convertDateTime pattern = "HH:mm" />
                 </h:outputText>
             </b></pre>

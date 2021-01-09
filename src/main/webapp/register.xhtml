@@ -14,9 +14,9 @@
                     <div class="ui-g-4" />
                     <div class="ui-g-4">
                         <h1 style="text-align: center;"><pre>Register</pre></h1>
-                        <pre><b>Registration hours: <h:outputText value="#{applicationConfig.registerIntervalStart}" >
+                        <pre><b>Registration hours: <h:outputText value="#{timeConfig.registerIntervalStart}" >
                                 <f:convertDateTime pattern = "HH:mm" />
-                            </h:outputText> to <h:outputText value="#{applicationConfig.registerIntervalEnd}" >
+                            </h:outputText> to <h:outputText value="#{timeConfig.registerIntervalEnd}" >
                                 <f:convertDateTime pattern = "HH:mm" />
                             </h:outputText>
                         </b></pre>

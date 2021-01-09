@@ -6,6 +6,7 @@
 package controllers;
 
 import config.ApplicationConfig;
+import config.TimeConfig;
 import entities.User;
 import interceptors.Log;
 import java.util.Calendar;
@@ -38,6 +39,8 @@ public class UploadController {
     @Inject
     DataService dataService;
     
+    @Inject
+    TimeConfig timeConfig;
     
     private Optional<User> currentUser;
     
@@ -58,7 +61,14 @@ public class UploadController {
     @Log
     public void handleFileUpload(FileUploadEvent event) {
         
+        Calendar now = Calendar.getInstance();
+        now.clear();
         
+        now.set(Calendar.HOUR_OF_DAY, Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
+        now.set(Calendar.MINUTE, Calendar.getInstance().get(Calendar.MINUTE));
+        
+        if (now.getTime().after(timeConfig.getUploadIntervalStart()) && now.getTime().before(timeConfig.getUploadIntervalEnd()))
+        {
             String username = securityContext.getCallerPrincipal().getName();
             this.currentUser = dataService.getUser(username);
 
@@ -66,6 +76,11 @@ public class UploadController {
 
             FacesMessage msg = new FacesMessage("Successful", event.getFile().getFileName() + " is uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, msg);
-        
+        }
+        else
+        {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Cannot upload outside of the interval!", null));
+        }
     }
 }
